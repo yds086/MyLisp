@@ -1,0 +1,24 @@
+目录设计原则
+
+project_XXXX\														项目目录
+			AbstractDesign										抽象设计代码(设计期工具代码)	
+			RunCode														运行期代码（解释器 vm等代码）	
+			Application												应用产品代码	
+			Test															测试代码
+			Bin																发布文件
+			Doc\															文档
+				Plan														计划
+				RefProjectTree									项目依赖说明
+				VerReadme												里程碑版本说明
+				Quest														问题列表
+				DesignDoc												概要设计说明书，详细设计说明书
+				RequirementDoc									需求说明书
+				SpecificationDoc								规范说明书
+				UserGuideDoc										用户手册说明书
+				
+				
+其中AbstractDesign RunCode Application这三个目录属于项目目录递归设计的
+
+比如 
+MyLisp\AbstractDesign\project_LikeC   
+MyLisp\RunCode\project_GpuLispMachine
