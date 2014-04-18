@@ -1,0 +1,12 @@
+(list 
+	(StackCode 
+		(list 未知数x `1 
+			(list (setq 未知数x `(list `1 `2 `3)))
+			`2 未知数x 
+			(setq 栈引用表达式 StackRefLisp) 
+			`栈引用表达式)) 
+	(StackCode 
+		(list 未知数x `1 
+			(list (setq 未知数x `(list `1 `2 `3))) 
+			`2 未知数x  )) 
+	`======= End)
