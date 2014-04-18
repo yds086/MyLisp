@@ -1,3 +1,5 @@
+git https://github.com/yds086/MyLisp
+
 1.原子概念
 和lisp基本公理不同，mylisp中的原子携带两个值，一个是自身携带的值，一个是对自己的值的求值的结果，携带的值可以是列表，具体数值，以及对象引用（这和C++中的对象引用概念相同，用于对共享对象求值，而非拷贝对象进行求值），引用的对象可以是原子和列表。
 
@@ -41,4 +43,13 @@ StackCode_Part的栈原子，其符号确认顺序为 本地栈-〉上层栈-〉....递归到栈类型是Sta
 
 其他引用lisp七大基本公理。
 
+
+
+5.辅助函数
+(RefLisp "..\Test\TestStack.txt")
+RefLisp是个很特别的函数，对其求值就是对"..\Test\TestStack.txt"文件列表中的Lisp求值，并且求值后RefLisp所在的列表也被替换成"..\Test\TestStack.txt"中的lisp对象
+
+
+
+6.近期问题目标
 反引用，列表引用融合后面再考虑
