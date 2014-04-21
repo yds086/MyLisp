@@ -2,3 +2,4 @@
 *.fasl
 *.lisp-temp
 MyLisp/Doc/SpecificationDoc/Mylisp基本公理.txt.bak
+*.bak
