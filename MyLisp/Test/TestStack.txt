@@ -3,12 +3,12 @@
 ;;;;2014.04.12
 (list 
 	;;;;栈测试
-	(StackCode 
+	(StackCode (list `1 `2)
 		(list 未知数x `1 
 					(list (setq 未知数x `(list `1 `2 `3))) `2 未知数x 
 					(setq 栈引用表达式 StackRefLisp) 
 					`栈引用表达式)) 
-	(StackCode 
+	(StackCode (list `2 `3)
 		(list 未知数x `1 
 					(list (setq 未知数x `(list `1 `2 `3))) 
 					`2 未知数x  )) 

@@ -1,0 +1,24 @@
+(list
+ 	     	(setg dolist)
+	 	(setq dolist 
+	 	      `(StackCode_Part (list
+	 	                            (sets ListObject)
+	 	                       	    (setref ListObject `(car (cdr StackRefLisp)))
+	 	                            (sets Func)
+	 	                            (setref Func `(car (cdr (cdr StackRefLisp))))
+	 	                            (cond ((atom ListObject) t) (t 
+	 	                                                         (list (sets Par)
+	 	                            				 (setref Par `(car ListObject))
+	 	                            				 ;;;;调用函数
+	 	                            				 (sets call)
+	 	                            				 (setref call (list Func Par))
+	 	                            				 call
+	 	                                                         (sets OtherPar)
+	 	                                                         (setref OtherPar `(cdr ListObject))
+	 	                                                         ;;;;递归调用宏
+	 	                                                         (setref call `(dolist ;OtherPar ;Func))
+	 	                            				 										 call)
+	 	                                                      	)
+	 	                              )
+	 	                           
+	 	                   ))))
