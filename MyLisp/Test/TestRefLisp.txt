@@ -1,4 +1,4 @@
 ;;;;引用测试
 ;;;;心海岛主
-;;;;2004.14.18
+;;;;2004.4.18
 (list (setq 引用Lisp `(RefLisp "..\Test\TestSetQ.txt")) `引用Lisp 引用Lisp `引用Lisp)

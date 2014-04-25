@@ -1,0 +1,10 @@
+;;;;“˝”√≤‚ ‘
+;;;;–°“∞÷Ì
+;;;;2004.4.25
+(list 
+(defmacro null (cons '() '()))
+null
+;;;;(())
+(cons (cons 1 (cons 2 null)) (cons 3 (cons 4 null)))
+;;;;((1 2 ()) 3 4 ())
+)

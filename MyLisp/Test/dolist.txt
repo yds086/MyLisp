@@ -1,24 +1,25 @@
+;;;;dolist 对列表中每一个对象调用一次方法
+;;;;心海岛主
+;;;;2004.4.21
 (list
- 	     	(setg dolist)
+ 	  (setg dolist)
 	 	(setq dolist 
-	 	      `(StackCode_Part (list
-	 	                            (sets ListObject)
-	 	                       	    (setref ListObject `(car (cdr StackRefLisp)))
-	 	                            (sets Func)
-	 	                            (setref Func `(car (cdr (cdr StackRefLisp))))
-	 	                            (cond ((atom ListObject) t) (t 
-	 	                                                         (list (sets Par)
-	 	                            				 (setref Par `(car ListObject))
-	 	                            				 ;;;;调用函数
-	 	                            				 (sets call)
-	 	                            				 (setref call (list Func Par))
-	 	                            				 call
-	 	                                                         (sets OtherPar)
-	 	                                                         (setref OtherPar `(cdr ListObject))
-	 	                                                         ;;;;递归调用宏
-	 	                                                         (setref call `(dolist ;OtherPar ;Func))
-	 	                            				 										 call)
-	 	                                                      	)
-	 	                              )
-	 	                           
-	 	                   ))))
+	 	      `(StackCode_Part 
+	 	      		(list
+                (sets ListObject)
+           	    (setref ListObject `(car (cdr StackRefLisp)))
+                (sets Func)
+                (setref Func `(car (cdr (cdr StackRefLisp))))
+                (cond 
+                	((atom ListObject) (setq RetVal `()))
+                 	(t  (list (sets Par)
+                    				 (setref Par `(car ListObject))
+                    				 ;;;;调用函数
+                    				 (sets FuncCall)
+                    				 (setref FuncCall (list Func Par))
+                             (sets OtherPar)
+                             (setref OtherPar `(cdr ListObject))
+                             ;;;;递归调用宏
+                             (setref dolistCall `(dolist ;OtherPar ;Func))
+				 										 (return (list FuncCall dolistCall)))))
+	 	           ))))
