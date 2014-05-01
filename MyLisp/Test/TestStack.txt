@@ -3,12 +3,14 @@
 ;;;;2014.04.12
 (list 
 	;;;;栈测试
-	(StackCode (list `1 `2)
+	;;;;(DebugLisp (xxx) (所有求值过程))
+	(StackCode 
 		(list 未知数x `1 
 					(list (setq 未知数x `(list `1 `2 `3))) `2 未知数x 
 					(setq 栈引用表达式 StackRefLisp) 
-					`栈引用表达式)) 
-	(StackCode (list `2 `3)
+					`栈引用表达式
+					(DebugLisp (栈引用表达式)))) 
+	(StackCode 
 		(list 未知数x `1 
 					(list (setq 未知数x `(list `1 `2 `3))) 
 					`2 未知数x  )) 

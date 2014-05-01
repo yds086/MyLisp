@@ -1,3 +1,6 @@
-(list (RefLisp "..\Test\dolist.txt")
-			(dolist (`(1 2) `(2 3) `(4 5)) car) 
+(list 
+			(DebugLisp () (求值错误) (求值成功))
+			(RefLisp "..\Test\dolist.txt")
+			(setref 任务队列 `(`(1 2) `(2 3) `(4 5)))
+			(dolist 任务队列 car) 
 )

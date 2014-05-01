@@ -6,12 +6,14 @@
 	 	(setq dolist 
 	 	      `(StackCode_Part 
 	 	      		(list
+	 	      			(setref 上层栈调用 StackRefLisp)
+	 	      			;;;;(DebugLisp ((上层栈调用 2)))
                 (sets ListObject)
            	    (setref ListObject `(car (cdr StackRefLisp)))
                 (sets Func)
                 (setref Func `(car (cdr (cdr StackRefLisp))))
                 (cond 
-                	((atom ListObject) (setq RetVal `()))
+                	((atom ListObject) (return t))
                  	(t  (list (sets Par)
                     				 (setref Par `(car ListObject))
                     				 ;;;;调用函数
@@ -20,6 +22,7 @@
                              (sets OtherPar)
                              (setref OtherPar `(cdr ListObject))
                              ;;;;递归调用宏
+                             (sets dolistCall)
                              (setref dolistCall `(dolist ;OtherPar ;Func))
-				 										 (return (list FuncCall dolistCall)))))
+				 										 (return (cons FuncCall dolistCall)))))
 	 	           ))))

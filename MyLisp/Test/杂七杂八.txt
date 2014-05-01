@@ -1,0 +1,24 @@
+(RefLisp "..\Test\testdolist.txt")
+(RefLisp "..\Test\TestStack.txt")
+
+(cons `(1 2) `())
+
+(cdr `((1 2 3) (3 4 5)))
+(cdr `(1 2 ()))
+(cdr `((1 2 3)))
+(car `())
+;;;;引用lisp文件测试
+(list (setq 引用Lisp `(RefLisp "..\Test\TestSetQ.txt")) `引用Lisp 引用Lisp `引用Lisp)
+
+;;;;对数值赋值后的效果
+(list (setq 1 2) (cdr `(3 1 2 1 3)) (DebugLisp (1) ))
+
+(list (setref 代码列表 ``(cdr (1 2 3))) (list 代码列表  想吃 对对对))
+;;;;执行宏
+(list (list `(setq ;函数名 `(car `(1)))))
+;;;;
+(list (setq `a `(1 2 3)) `a)
+
+(list (setg +)  (setref + `Add) (+ 3 4 5) (setref + `Mul) (+ 3 4 5))
+(list (setq a `(cons `list (`list 1 2 3))) a (setq b a) b)
+(RefLisp "..\Test\TestCommonDSL.txt")

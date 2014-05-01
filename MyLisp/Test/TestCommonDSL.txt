@@ -1,0 +1,6 @@
+(list 
+			(RefLisp "..\Test\CommonDSL.txt")
+			(defun TestFun (x y) (return (list x y)))
+			(DebugLisp (TestFun))
+			(TestFun `(list 1 2) `3) 
+)
