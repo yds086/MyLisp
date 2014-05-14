@@ -1,0 +1,11 @@
+(list 
+	(RefLisp "..\Test\CommonDSL.txt")
+	(defun fib (x) (list
+				(cond ((< x 2) (return 1)))
+				;;;;(DebugLisp (x))
+				;;;;(bp (-2) (ÇóÖµÇ°) t)
+				(return (+ (fib (+ x -1)) (fib (+ x -2))))
+				))
+
+	(fib 30)
+)

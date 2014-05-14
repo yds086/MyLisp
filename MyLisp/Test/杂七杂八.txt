@@ -18,7 +18,26 @@
 (list (list `(setq ;函数名 `(car `(1)))))
 ;;;;
 (list (setq `a `(1 2 3)) `a)
-
+//符号重载
 (list (setg +)  (setref + `Add) (+ 3 4 5) (setref + `Mul) (+ 3 4 5))
+(list (setg 设置引用)  (setref 设置引用 `setref) (设置引用 a `(list 1 2 3)) a)
+
 (list (setq a `(cons `list (`list 1 2 3))) a (setq b a) b)
 (RefLisp "..\Test\TestCommonDSL.txt")
+(RefLisp "..\Test\Testfib.txt")
+;;;;引用测试
+(list a (setref b a) (setq b 7) a b (setq b (Add a b)) a b )
+(list a (setref b a) (setq b 7) a b)
+
+(list (setq y 1) (bp (y) (求值前) t) y)
+//融合列表
+//列表融合
+(list (setq a `(list 1 2 3)) (setq b `(list 4 5 6)) (setq c `(list @a @b)) c)
+//反引用融合
+(list (setq a `(list 1 2 3)) (setq b `(list 4 5 6)) (setq c ``(;@a ;@b)) c)
+//融合列表定义
+(list (setq a `@(list 1 2 3)) (setq b `@(list 4 5 6)) (setq c `(list a b)) c)
+
+(list (setq a @`(list 1 2 3)) a)
+(list (setq a `@(list 1 2 3)) (setq b `@(list 4 5 6)) (setq c `(cons a b)) c)
+(list (setq a `(list 1 2 3)) (setq b `(list 4 5 6)) (setq c `(cons @a @b)) c)

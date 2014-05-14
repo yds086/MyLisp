@@ -2,6 +2,8 @@
 (list
 	(setg +) 
 	(setref + `Add)
+	(setg <) 
+	(setref < `LessThan)
 	(DebugLisp () (求值错误) (求值成功))
 	(RefLisp "..\Test\dolist.txt")
 	
@@ -55,7 +57,7 @@
 	 									(sets 形参)
 	 									(setref 形参 `(StackRefLisp 1))
 	 									(cond ((atom 形参) 
-	 													(return `(list (sets ;形参) 
+	 													(return `( (sets ;形参) 
 	 																		(setq ;形参 (StackRefLispGetVal n)) 
 	 																		(setq n (+ n 1))
 	 																			)))
@@ -66,8 +68,8 @@
 	 																(setref 参数名 `(car (cdr 形参)))
 	 																(cond ((atom (eq 参数类型 &) ) 
 	 																				(return 
-	 																						`(list (sets ;参数名) 
-	 																							(setref ;形参 (StackRefLisp n)) 
+	 																						`( (sets ;参数名) 
+	 																							(setref ;参数名 (StackRefLisp n)) 
 	 																							(setq n (+ n 1)))
 	 																						 )))
 	 															  )))))
@@ -85,15 +87,16 @@
 		               (setref 形参列表 (StackRefLisp 2))
 		               ;;;;根据形参列表生成参数绑定代码形如 (list (setq x (car (cdr StackRefLisp)) (setref y (car (cdr (cdr StackRefLisp)))))
 		               
-		               (setref 参数初始化绑定 `(cons `list (dolist 形参列表 参数绑定代码生成)))
+		               (setref 参数初始化绑定 `(dolist_f 形参列表 参数绑定代码生成))
 		               (sets 代码列表)
 		               (setref 代码列表 `(car (cdr (cdr (cdr StackRefLisp)))))
+		               ;;;;(setref 代码列表 `(StackRefLisp 3))
 		               ;;;;制作函数体
 		               ;;;;生成函数体代码(list 参数绑定代码列表 代码列表)
 	                 (sets 函数体)
-	                 (setref 函数体 ``(StackCode ;(list `list `(sets n) `(setq n 1) 参数初始化绑定 代码列表)))
-	                 (setq szDebug 函数体)
-	               	 (DebugLisp (szDebug))
+	                 (setref 函数体 ``(StackCode ;(list `list `(sets n) `(setq n 1) @参数初始化绑定 代码列表)))
+	                 ;;;;(setq szDebug 函数体)
+	               	 ;;;;(DebugLisp (szDebug))
 		               (sets MakeFunc)
 		               (setq MakeFunc 
 			           	   `(setq ;函数名  ';函数体))

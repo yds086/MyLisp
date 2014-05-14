@@ -1,6 +1,20 @@
 (list 
-			(RefLisp "..\Test\CommonDSL.txt")
-			(defun TestFun (x y) (return (list x y)))
-			(DebugLisp (TestFun))
-			(TestFun `(list 1 2) `3) 
+	(RefLisp "..\Test\CommonDSL.txt")
+	(defun TestFun (x y) (return (list x y)))
+	(DebugLisp (TestFun))
+	(REM
+		(TestFun `(list 1 2) `3) 
+		(setq x 1) (setq y -61)
+		(defun TestFun1 (x (& y)) 
+				(list (DebugLisp (1 y))	
+				 (setq y (+ x y))
+				 (DebugLisp (2 y))
+				 (return y)	))
+		;;;;(DebugLisp (TestFun1))		
+		y	
+		(TestFun1 `7 y)
+		;;;;(bp (y) («Û÷µ«∞) t)
+		y
+	)
+				
 )
